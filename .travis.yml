@@ -1,0 +1,25 @@
+ 
+---
+language: python
+python: "3.8"
+
+before_install:
+  # Make sure everything's up to date.
+  - sudo apt-get update -qq
+
+install:
+  # Instal YAML lint for yaml syntax check
+  - pip install yamllint
+
+  # Install Ansible-lint for Ansible linting
+  - pip install git+https://github.com/ansible/ansible-lint.git
+  
+  # Install Flake8 to check for errors possible Python files
+  - pip install flake8
+
+script:
+  # Check YAML syntax
+  - yamllint .
+
+  # Check the role/playbook's syntax.
+  - ansible-lint -v
