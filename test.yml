@@ -1,0 +1,7 @@
+---
+- name: testing yaml file for code test  
+  hosts: localhost
+  tasks:
+  - name: testing 
+    debug:
+      msg: "testing message"   
